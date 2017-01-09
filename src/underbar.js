@@ -65,7 +65,8 @@
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
-  _.map = (collection, iterator) => {};
+  _.map = (collection, iterator) =>
+    (!collection.length) ? [] : [iterator(collection[0])].concat(_.map(collection.slice(1), iterator));
 
   /*
    * TIP: map is really handy when you want to transform an array of
@@ -76,14 +77,8 @@
   // Takes an array of objects and returns and array of the values of
   // a certain property in it. E.g. take an array of people and return
   // an array of just their ages
-  _.pluck = (collection, key) => {
-    // TIP: map is really handy when you want to transform an array of
-    // values into a new array of values. _.pluck() is solved for you
-    // as an example of this.
-    return _.map(collection, (item)=> {
-      return item[key];
-    });
-  };
+  _.pluck = (collection, key) =>
+    _.map(collection, (item)=> item[key]);
 
   // Reduces an array or object to a single value by repetitively calling
   // iterator(accumulator, item) for each item. accumulator should be
