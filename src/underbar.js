@@ -105,8 +105,8 @@
   //     return total + number * number;
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
-  _.reduce = (collection, iterator, accumulator) => {
-  };
+  _.reduce = (collection, iterator, accumulator, call = false) =>
+    (!collection.length) ? accumulator : _.reduce(collection.slice(1), iterator, (accumulator === undefined && call == false) ? collection[0] : iterator( accumulator,collection[0]), true);
 
   // Determine if the array or object contains a given value (using `===`).
   _.contains = (collection, target) => {
