@@ -294,6 +294,12 @@
   // on this function.
   //
   // Note: This is difficult! It may take a while to implement.
-  _.throttle = function(func, wait) {
-  };
+  _.throttle = (func, wait, status = false, ...arg) =>
+    ()=>{
+      if(!status){
+        status = true;
+        func.call(...arg)
+        setTimeout(() => status = false, wait)
+      }
+    };
 }());
