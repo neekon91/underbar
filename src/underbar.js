@@ -114,8 +114,7 @@
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
-  _.some = (collection, iterator) => {
-  };
+  _.some = (collection, iterator = _.identity) => !_.every(collection, item => !iterator(item));
 
 
   /**
