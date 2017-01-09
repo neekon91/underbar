@@ -44,26 +44,28 @@
   };
 
   // Return all elements of an array that pass a truth test.
-  _.filter = function(collection, test) {
+  _.filter = (collection, test, output = []) => {
+    _.each(collection, value=>{
+      if(test(value)){
+        output = [...output, value];
+      }
+    })
+    return output;
   };
 
   // Return all elements of an array that don't pass a truth test.
-  _.reject = function(collection, test) {
-    // TIP: see if you can re-use _.filter() here, without simply
-    // copying code in and modifying it
-  };
+  _.reject = (collection, test) => {};
 
   // Produce a duplicate-free version of the array.
-  _.uniq = function(array) {
+  _.uniq = (array) => {
   };
 
 
   // Return the results of applying an iterator to each element.
-  _.map = function(collection, iterator) {
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
-  };
+  _.map = (collection, iterator) => {};
 
   /*
    * TIP: map is really handy when you want to transform an array of
@@ -74,11 +76,11 @@
   // Takes an array of objects and returns and array of the values of
   // a certain property in it. E.g. take an array of people and return
   // an array of just their ages
-  _.pluck = function(collection, key) {
+  _.pluck = (collection, key) => {
     // TIP: map is really handy when you want to transform an array of
     // values into a new array of values. _.pluck() is solved for you
     // as an example of this.
-    return _.map(collection, function(item){
+    return _.map(collection, (item)=> {
       return item[key];
     });
   };
@@ -103,14 +105,14 @@
   //     return total + number * number;
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
-  _.reduce = function(collection, iterator, accumulator) {
+  _.reduce = (collection, iterator, accumulator) => {
   };
 
   // Determine if the array or object contains a given value (using `===`).
-  _.contains = function(collection, target) {
+  _.contains = (collection, target) => {
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
-    return _.reduce(collection, function(wasFound, item) {
+    return _.reduce(collection, (wasFound, item) => {
       if (wasFound) {
         return true;
       }
@@ -120,13 +122,13 @@
 
 
   // Determine whether all of the elements match a truth test.
-  _.every = function(collection, iterator) {
+  _.every = (collection, iterator) => {
     // TIP: Try re-using reduce() here.
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
-  _.some = function(collection, iterator) {
+  _.some = (collection, iterator) => {
     // TIP: There's a very clever way to re-use every() here.
   };
 
@@ -149,12 +151,12 @@
   //   }, {
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
-  _.extend = function(obj) {
+  _.extend = (obj) => {
   };
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
-  _.defaults = function(obj) {
+  _.defaults = (obj) => {
   };
 
 
