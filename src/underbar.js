@@ -109,8 +109,8 @@
 
 
   // Determine whether all of the elements match a truth test.
-  _.every = (collection, iterator) => {
-  };
+  _.every = (collection, iterator = _.identity) =>
+    _.reduce(collection, (test, val) =>  test ? !!iterator(val) : false, true);
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
