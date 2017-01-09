@@ -190,8 +190,11 @@
   // _.memoize should return a function that, when called, will check if it has
   // already computed the result for the given argument and return that value
   // instead if possible.
-  _.memoize = function(func) {
-  };
+  _.memoize = (func, memo = {}) =>
+    function(){
+      const ser = JSON.stringify(arguments);
+      return memo[ser] = memo[ser] || func.apply(this, arguments)
+    };
 
   // Delays a function for the given number of milliseconds, and then calls
   // it with the arguments supplied.
