@@ -275,8 +275,8 @@
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
     var args1 = Array.prototype.slice.call(arguments,1);
-    return _.filter(arguments[0],(item) =>
-      _.every(args1, (arrays) =>
+    return _.filter(arguments[0], item =>
+      _.every(args1, arrays =>
         _.contains(arrays, item)));
   };
 
