@@ -220,8 +220,11 @@
   // TIP: This function's test suite will ask that you not modify the original
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
-  _.shuffle = function(array) {
-  };
+  _.shuffle = (array) =>
+    _.reduce(array, (memo, val) => {
+      memo.splice(Math.floor(Math.random()*(memo.length+1)), 0, val);
+      return memo;
+    }, []);
 
 
   /**
