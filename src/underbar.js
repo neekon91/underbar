@@ -57,8 +57,7 @@
   _.reject = (collection, test) => _.filter(collection, val => !test(val));
 
   // Produce a duplicate-free version of the array.
-  _.uniq = (array) => {
-  };
+
 
 
   // Return the results of applying an iterator to each element.
@@ -104,27 +103,16 @@
     (!collection.length) ? accumulator : _.reduce(collection.slice(1), iterator, (accumulator === undefined && call == false) ? collection[0] : iterator( accumulator,collection[0]), true);
 
   // Determine if the array or object contains a given value (using `===`).
-  _.contains = (collection, target) => {
-    // TIP: Many iteration problems can be most easily expressed in
-    // terms of reduce(). Here's a freebie to demonstrate!
-    return _.reduce(collection, (wasFound, item) => {
-      if (wasFound) {
-        return true;
-      }
-      return item === target;
-    }, false);
-  };
+  _.contains = (collection, target) => (_.indexOf(collection, target) !== -1) ? true : false;
 
 
   // Determine whether all of the elements match a truth test.
   _.every = (collection, iterator) => {
-    // TIP: Try re-using reduce() here.
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
   _.some = (collection, iterator) => {
-    // TIP: There's a very clever way to re-use every() here.
   };
 
 
